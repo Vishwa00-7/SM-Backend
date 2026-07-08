@@ -119,7 +119,7 @@ const app = express();
 //using Middleware on express
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:5173", // Your React App URL
+    origin: "https://stock-market-sim1.netlify.app", // Your React App URL
     credentials: true                // Allows cookies to be sent
 }));
 app.use(cookieParser());
@@ -443,7 +443,7 @@ app.get('/auth/google/callback', passport.authenticate('google', { failureRedire
 
         const accessToken = generateAccessToken(payload);
         //res.status(200).send(accessToken);
-        res.redirect(`http://localhost:5173?token=${accessToken}`);
+        res.redirect(`https://stock-market-sim1.netlify.app/?token=${accessToken}`);
 
     }
     catch (e) {
