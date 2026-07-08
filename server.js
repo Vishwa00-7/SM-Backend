@@ -342,7 +342,7 @@ app.post("/login/input", async (req, res) => {
                 res.cookie("RefreshToken", refreshToken, {
                     httpOnly: true,
                     secure: true, //change it to True at https --------  !!!!!!!!!
-                    sameSite: "strict",
+                    sameSite: "none",
                     maxAge: 30 * 24 * 60 * 60 * 1000
                 });
 
@@ -437,7 +437,7 @@ app.get('/auth/google/callback', passport.authenticate('google', { failureRedire
         res.cookie("RefreshToken", refreshToken, {
             httpOnly: true,
             secure: true, //change it to True at https --------  !!!!!!!!!
-            sameSite: "strict",
+            sameSite: "none",
             maxAge: 30 * 24 * 60 * 60 * 1000
         });
 
@@ -461,7 +461,7 @@ app.get("/logout" , (req,res)=>{
         httpOnly: true,
         maxAge : 0,
         secure: true,
-        sameSite: 'strict'
+        sameSite: 'none'
     });
         // console.log(flag)
         res.status(200).send("Logged Out Successfully")
@@ -525,5 +525,5 @@ app.METHOD("/ENDPOINT" , async (req,res) => {
 
 
 app.listen(PORT, () => {
-    // console.log("Server is Listening...");
+    console.log("Server is Listening...");
 });
