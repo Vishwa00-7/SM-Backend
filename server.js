@@ -384,7 +384,8 @@ app.get("/generatetoken", async (req, res) => {
         const refreshToken = req.cookies.RefreshToken;
         if (!refreshToken)
             return res.status(401).send("Refresh Token is Missing");
-        if (!checkRefreshTokenInDB(refreshToken))
+        const flag = await checkRefreshTokenInDB(refreshToken)
+        if (!flag)
             return res.status(401).send("Refresh Token is Expired");
         const Decoded_Payload = jwt.verify(refreshToken, Refresh_Token_Secret);
         // console.log("decode payload ", Decoded_Payload);
