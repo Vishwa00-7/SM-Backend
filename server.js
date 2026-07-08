@@ -124,6 +124,7 @@ app.use(cors({
 }));
 app.use(cookieParser());
 
+app.set("trust proxy", 1);
 
 //Functions for API
 
@@ -251,7 +252,8 @@ function authenticateToken(req, res, next) {
 passport.use(new GoogleStrategy({
     clientID: Google_Client_ID,
     clientSecret: Google_Client_Secret,
-    callbackURL: '/auth/google/callback'
+    callbackURL: '/auth/google/callback',
+    proxy: true
 },
     async (accessToken, refreshToken, profile, done) => {
         try {
