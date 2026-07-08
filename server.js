@@ -19,10 +19,12 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 const PORT = process.env.PORT || 3000;
 const DB_URL = process.env.DATABASE_URL;
-const Refresh_Token_Secret = process.env.REFRESH_TOKEN_SECRET;
-const Access_Token_Secret = process.env.ACCESS_TOKEN_SECRET;
+const Refresh_Token_Secret = process.env.REFRESH_TOKEN_SECRET || process.env.Refresh_Token_Secret || "dev-refresh-secret";
+const Access_Token_Secret = process.env.ACCESS_TOKEN_SECRET || process.env.Access_Token_Secret || "dev-access-secret";
 const Google_Client_ID = process.env.GOOGLE_CLIENT_ID;
 const Google_Client_Secret = process.env.GOOGLE_CLIENT_SECRET;
+
+
 
 //Connecting with Mongoose
 
