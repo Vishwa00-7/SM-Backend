@@ -337,7 +337,7 @@ app.post("/login/input", async (req, res) => {
                 // console.log("RefreshToken", refreshToken); //--------------------
                 res.cookie("RefreshToken", refreshToken, {
                     httpOnly: true,
-                    secure: false, //change it to True at https --------  !!!!!!!!!
+                    secure: true, //change it to True at https --------  !!!!!!!!!
                     sameSite: "strict",
                     maxAge: 30 * 24 * 60 * 60 * 1000
                 });
@@ -431,7 +431,7 @@ app.get('/auth/google/callback', passport.authenticate('google', { failureRedire
         // console.log("RefreshToken", refreshToken); //--------------------
         res.cookie("RefreshToken", refreshToken, {
             httpOnly: true,
-            secure: false, //change it to True at https --------  !!!!!!!!!
+            secure: true, //change it to True at https --------  !!!!!!!!!
             sameSite: "strict",
             maxAge: 30 * 24 * 60 * 60 * 1000
         });
@@ -455,7 +455,7 @@ app.get("/logout" , (req,res)=>{
         res.cookie('RefreshToken', '', {
         httpOnly: true,
         maxAge : 0,
-        secure: false,
+        secure: true,
         sameSite: 'strict'
     });
         // console.log(flag)
