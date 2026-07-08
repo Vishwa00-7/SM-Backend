@@ -249,7 +249,7 @@ function authenticateToken(req, res, next) {
 passport.use(new GoogleStrategy({
     clientID: Google_Client_ID,
     clientSecret: Google_Client_Secret,
-    callbackURL: 'http://localhost:3000/auth/google/callback'
+    callbackURL: 'https://sm-backend-qjvf.onrender.com/auth/google/callback'
 },
     async (accessToken, refreshToken, profile, done) => {
         try {
